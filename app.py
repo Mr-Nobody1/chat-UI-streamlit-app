@@ -51,9 +51,9 @@ for message in st.session_state.messages:
             st.write(message["search_results"])
 
 # User input section
-with st.container():
-    user_input = st.chat_input("Ask your document query:")
+user_input = st.chat_input("Ask your document query:")
 
+with st.container():
     if user_input:
         response_message, search_results = generate_response(user_input)
 
@@ -67,6 +67,7 @@ with st.container():
         st.session_state.messages.append(assistant_message)
 
         st.rerun()
+
     
 # # Setting Streamlit
 # st.title('Chatbot Interface with Langchain and Pinecone')
